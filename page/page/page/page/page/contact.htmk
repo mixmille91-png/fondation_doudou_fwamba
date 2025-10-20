@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Fondation Doudou Fwamba</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Fondation <span>Doudou Fwamba</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                    <li><a href="nos-actions.html">Nos actions</a></li>
+                    <li><a href="nous-rejoindre.html">Nous rejoindre</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <p>Nous sommes à votre écoute pour toute question ou collaboration</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <h3>📧 Email</h3>
+                    <p>contact@fondationdf.org</p>
+                </div>
+                <div class="card">
+                    <h3>📞 Téléphone</h3>
+                    <p>+243 825 737 945</p>
+                </div>
+                <div class="card">
+                    <h3>📍 Adresse</h3>
+                    <p>Siège de la Fondation<br>Kisangani, RDC</p>
+                </div>
+            </div>
+            
+            <div class="card" style="max-width: 600px; margin: 2rem auto;">
+                <h3>✉️ Envoyer un message</h3>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                   
+                    <input type="hidden" name="access_key" value="e032e789-7a9f-4b52-9ca0-91e838645ab9">
+                    
+                    <input type="hidden" name="subject" value="Nouveau message - Fondation Doudou Fwamba">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    
+                    <div class="form-group">
+                        <label for="name">Votre nom complet *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Votre adresse email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sujet">Sujet *</label>
+                        <select id="sujet" name="sujet" required>
+                            <option value="">Choisissez un sujet</option>
+                            <option value="information">Demande d'information</option>
+                            <option value="benevolat">Bénévolat</option>
+                            <option value="partenariat">Partenariat</option>
+                            <option value="don">Don</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Envoyer le message</button>
+                    
+                    <div id="result" style="margin-top: 1rem; padding: 1rem; border-radius: 4px; display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fondation Doudou Fwamba. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const result = document.getElementById('result');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    result.style.display = 'block';
+                    result.style.background = '#d4edda';
+                    result.style.color = '#155724';
+                    result.style.border = '1px solid #c3e6cb';
+                    result.innerHTML = '✅ Message envoyé avec succès! Nous vous répondrons rapidement.';
+                    form.reset();
+                } else {
+                    throw new Error(data.message || 'Erreur lors de l\'envoi');
+                }
+            })
+            .catch(error => {
+                result.style.display = 'block';
+                result.style.background = '#f8d7da';
+                result.style.color = '#721c24';
+                result.style.border = '1px solid #f5c6cb';
+                result.innerHTML = '❌ Erreur: ' + error.message;
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
