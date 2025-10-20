@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous rejoindre - Fondation Doudou Fwamba</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Fondation <span>Doudou Fwamba</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                    <li><a href="nos-actions.html">Nos actions</a></li>
+                    <li><a href="nous-rejoindre.html">Nous rejoindre</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Nous rejoindre</h2>
+            <p>Plusieurs façons de soutenir notre action</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <h3>👥 Devenir bénévole</h3>
+                    <p>Rejoignez notre équipe de bénévoles et participez activement à nos projets sur le terrain.</p>
+                    <a href="contact.html" class="btn-small">Postuler</a>
+                </div>
+                <div class="card">
+                    <h3>💰 Faire un don</h3>
+                    <p>Soutenez financièrement nos actions et aidez-nous à amplifier notre impact.</p>
+                    <a href="contact.html" class="btn-small">Faire un don</a>
+                </div>
+                <div class="card">
+                    <h3>🤝 Partenariats</h3>
+                    <p>Devenez partenaire de la fondation et participez à des projets de développement durable.</p>
+                    <a href="contact.html" class="btn-small">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fondation Doudou Fwamba. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
